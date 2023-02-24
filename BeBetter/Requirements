@@ -2,15 +2,16 @@ Below are some functional requirement BeBetter application:
 
 Phase 1:
 Core Requirement
-1. We can sign up user with some basic details.
-2. User should be able to login using basic authentication before they can perform anything.
-3. User can add task for today or for any future date. 
-4. User can perform below actions on the task:
-  a. should be able to assign points to the task. 
-  b. Should be able to complete or cancel the task.
-  d. Should be able to update the task and any of its property
-5. User should be able to fetch all the tasks, its basic details and total points for all the task
-6. User should be able to be able to complete the task by giving points to that task. like 5 point of 10 points.
-7. User should be able to calculate the total efficiency of the day
-8. User should be able to add get the average efficiency of a month
-9. User should be able to get a yearly report
+@@@ We can sign up user with some basic details.
+@@@ User should be able to login using basic authentication before they can perform anything.
+@@@ User should be able to update his profile
+@@@ User can add task for today or for any future date. 
+@@@ User can perform below actions on the task:
+  @@@ should be able to assign points to the task. 
+  @@@ Should be able to complete or cancel the task.
+  @@@ Should be able to update the task and any of its property
+@@@ User should be able to fetch all the tasks, its basic details and total points for all the task
+@@@ User should be able to be able to complete the task by giving points to that task. like 5 point of 10 points.
+@@@ User should be able to calculate the total efficiency of the day
+@@@ User should be able to add get the average efficiency of a month
+@@@ User should be able to get a yearly report
