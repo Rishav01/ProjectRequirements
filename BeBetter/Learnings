@@ -1,0 +1,35 @@
+1. While we added the project I was getting error "**Error :** Process 'command 'C:\Program Files\Java\jdk\bin\java.exe'' finished with non-zero exit value 1"
+This comes mostly when the port we are trying to use is already occupied.
+Stackoverflow link: https://stackoverflow.com/questions/60651244/process-command-c-program-files-java-jdk-bin-java-exe-finished-with-non-zer
+
+2. We got "org.springframework.beans.factory.BeanCreationException" due to "Error creating bean with name 'dataSource' defined in class path resource"
+This means datasource bean is not created. In my case, it happened because we did not mention the sql driver dependency in gradle.
+
+3. In springboot project, we can simply use lombok dependency for logging with @Slf4j annotation. In spring boot project, we need to do a few things to get it working.
+First, we need to add lombok dependency. Second we need to exclude spring boot starter logging for all starter dependency as all starter project depend on starter
+logging. So, removing from one only wont help. Third, we need to add dependency of spring boot starter log4j.
+I took too long to resolve this issue. But the issue was coming because of the Lombok dependency is added. Below is the wrong way i did and right way it suppose to be:
+Incorrect: implementation 'org.projectlombok:lombok'
+Correct: implementation 'org.projectlombok:lombok'
+         annotationProcessor 'org.projectlombok:lombok'
+Another mistake i was doing was the way i was excluding the spring boot starter logging. Below is the incorrect and correct way
+incorrect: 
+configurations {
+	compile.exclude module: 'spring-boot-starter-logging'
+}
+Correct:
+configurations {
+	all {
+		exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
+	}
+}
+Lastly, this happened due to the lack of my knowledge of gradle and lombok i guess.
+
+
+4. Intellij has settings option in windows while i guess the same is called as preference in mac hence do not get confused 
+
+5. Check the lombok issue with NoargsArgument and builder. Also, does order of it matters.
+
+6. In Spring Data JPA, a default constructor is needed, ID should have a default value.
+
+7. Do not give id as double.
