@@ -1,0 +1,12 @@
+||Design Document - BeBetter||
+
+|Below are the services we can make:|
+1. user service: 
+  a. This service will hold the details of the user.
+  b. This service will have the logic for user authentication
+  c. This service will have business logic for updating user profile
+2. Task service: 
+  a. This services will contain details of a task
+  b. This service will have business logic for assign, complete or edit task attribute
+  c. All other logic written in the requirement related to task details will be present inside this service 
+
