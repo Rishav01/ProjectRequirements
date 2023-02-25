@@ -1,6 +1,8 @@
 ||Design Document - BeBetter||
 
-|Below are the services we can make:|
+|Phase 1|
+
+Below are the services we can make:
 1. user service: 
   a. This service will hold the details of the user.
   b. This service will have the logic for user authentication
@@ -9,4 +11,10 @@
   a. This services will contain details of a task
   b. This service will have business logic for assign, complete or edit task attribute
   c. All other logic written in the requirement related to task details will be present inside this service 
+  
+  
+  
+  Database server for now:
+  1. we will create Mysql server free online and use for our application.
+  2. freesqldatabase.com|mrishav72@gmail.com|Babu@123
 
