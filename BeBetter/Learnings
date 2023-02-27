@@ -32,4 +32,20 @@ Lastly, this happened due to the lack of my knowledge of gradle and lombok i gue
 
 6. In Spring Data JPA, a default constructor is needed, ID should have a default value.
 
-7. Do not give id as double.
+7. Do not give id as double or string for entity class. Give it integer or long. Use annotation @GeneratedValue(strategy = GenerationType.IDENTITY). Also, provide
+noargsconstructor
+
+8. Status code should be used wisely. For user created, the status should be 201 which is created. Also, send ResponseEntity in return and not string. 
+204 when no content return which mean we worked on the request with no errror but there is no content to return. 
+
+9. For null checking string, the best way is third party apache StringUtils that check null and length both. However, for this we need to explicitly put apache common
+as dependency. Hence, I though why to put it just for one use case. Hence, I did two relevant methods. String.isEmpty (java 1.6) and String.isBlank(Java 1.11). 
+String.isEmpty only checks for length. String.isBlank check for lenth and whitespace both. Hence, i did two checks. One is for null and other for String.isBlank.
+
+10. While desinging urls, it is recommended to have hyphens over camcelCasing or underscore.
+
+11. For an object which we are trying to return a response must have getter otherwise we will receive empty response.
+
+12. Using stream on one type of list and want of get list of other type then we need to use map(). If want to get list of same type then we can use forEach().
+
+13. When we want to have date or Datetime as requestparam then we need to mention the @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date
