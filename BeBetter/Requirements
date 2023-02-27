@@ -1,17 +1,38 @@
 Below are some functional requirement BeBetter application:
 
 Phase 1:
-Core Requirement
-@@@ We can sign up user with some basic details.
-@@@ User should be able to login using basic authentication before they can perform anything.
-@@@ User should be able to update his profile
-@@@ User can add task for today or for any future date. 
+Core Requirement:
+User Feature Related:
+@@@ [Done] User should be able to Register himself
+@@@ [Done] We can sign up user with some basic details.
+  a. UI will call the login api of user service. If user logged in successfully then 200 with user object. If user login failed then 401. Message could be 
+     "incorrect password" or "user with this user id does not exist"
+@@@ [Done] User should be able to login using basic authentication before they can perform anything.
+@@@ [Done] User should be able to update his profile
+@@@ [Done] User should be able to delete his profile
+@@@ We have should have plans for the user. Like silver, gold and platinum. A user should be able to keep 2, 5 and 10 task for these plans respectively.  
+
+Task Feature Related:
+@@@ [Done] User can add task for today or for any future date. 
 @@@ User can perform below actions on the task:
   @@@ should be able to assign points to the task. 
   @@@ Should be able to complete or cancel the task.
   @@@ Should be able to update the task and any of its property
 @@@ User should be able to fetch all the tasks, its basic details and total points for all the task
 @@@ User should be able to be able to complete the task by giving points to that task. like 5 point of 10 points.
-@@@ User should be able to calculate the total efficiency of the day
-@@@ User should be able to add get the average efficiency of a month
-@@@ User should be able to get a yearly report
+@@@ User must not be able to add task more than allowed in his plan
+
+User Feature Related: Diary Related
+@@@ In all the request, user should be able to authenticate calling user service and only then serve the request. In authorization header.
+@@@ Diary Current status: Fetch all task of the day with points
+@@@ Current Day efficiency status: User should be able to calculate the total efficiency of the day
+@@@ Mornthly report: User should be able to add get the average efficiency of a month
+@@@ Yearly report: User should be able to get a yearly report
+
+
+Phase 2:
+@@@User should be kept encrypted and only be decrypted during authentication process.
+@@@Proper exception handling in entire application including the status code for 500 and other
+@@@Put logs wisely
+@@@SHould allow sub tasks
+@@@Should have a feature of dialy tasks
