@@ -49,3 +49,7 @@ String.isEmpty only checks for length. String.isBlank check for lenth and whites
 12. Using stream on one type of list and want of get list of other type then we need to use map(). If want to get list of same type then we can use forEach().
 
 13. When we want to have date or Datetime as requestparam then we need to mention the @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date
+
+14. @Value(${""}) is the right syntax. Not @Value("")
+
+15. All the dto or entity classes we use must have NoArgs constructor is they will be involved in data transfer and in term serializarion. 
