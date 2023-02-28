@@ -53,3 +53,5 @@ String.isEmpty only checks for length. String.isBlank check for lenth and whites
 14. @Value(${""}) is the right syntax. Not @Value("")
 
 15. All the dto or entity classes we use must have NoArgs constructor is they will be involved in data transfer and in term serializarion. 
+
+16. We can make the RequestParam optional too like @RequestParam(required=false) this way if we do not send request param then we do not receive error.
