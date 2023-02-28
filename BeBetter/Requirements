@@ -10,10 +10,11 @@ User Feature Related:
 @@@ [Done] User should be able to login using basic authentication before they can perform anything.
 @@@ [Done] User should be able to update his profile
 @@@ [Done] User should be able to delete his profile
-@@@ We have should have plans for the user. Like silver, gold and platinum. A user should be able to keep 2, 5 and 10 task for these plans respectively.  
+@@@ [Done ]We have should have plans for the user. Like silver, gold and platinum. A user should be able to keep 2, 5 and 10 task for these plans respectively.  
+@@@ Should we able to just upgrade the plan
 
 Task Feature Related:
-@@@ [Done] User can add task for today or for any future date. 
+@@@ [Done] User can add task for today or for any future date. But only after the task is allowed according to user current plan. (User serice call involved)
 @@@ User can perform below actions on the task:
   @@@ should be able to assign points to the task. 
   @@@ Should be able to complete or cancel the task.
@@ -23,7 +24,7 @@ Task Feature Related:
 @@@ User must not be able to add task more than allowed in his plan
 
 User Feature Related: Diary Related
-@@@ In all the request, user should be able to authenticate calling user service and only then serve the request. In authorization header.
+@@@ In all the request, user should be able to authenticate calling user service and only then serve the request
 @@@ Diary Current status: Fetch all task of the day with points
 @@@ Current Day efficiency status: User should be able to calculate the total efficiency of the day
 @@@ Mornthly report: User should be able to add get the average efficiency of a month
