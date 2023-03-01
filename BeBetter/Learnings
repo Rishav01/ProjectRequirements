@@ -56,4 +56,10 @@ String.isEmpty only checks for length. String.isBlank check for lenth and whites
 
 16. We can make the RequestParam optional too like @RequestParam(required=false) this way if we do not send request param then we do not receive error.
 
-17. In Spring Data JPA, we can use
+17. In Spring Data JPA, we can use the named parameter. So, these name parameter are the normal parameter of repository method. Check exmaple below:
+@Query(value = "select * from task t where t.userEmailId = :userEmailId and t.forDate >= :fromDate " +
+            "and t.forDate <= :toDate;", nativeQuery = true)
+	 
+18. We need to check different ways in which we can calculate sum through a stream. Check the below stack overflow link
+@Query(value = "select * from task t where t.userEmailId = :userEmailId and t.forDate >= :fromDate " +
+            "and t.forDate <= :toDate;", nativeQuery = true) 
