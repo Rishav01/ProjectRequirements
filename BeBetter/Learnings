@@ -4,6 +4,7 @@ Stackoverflow link: https://stackoverflow.com/questions/60651244/process-command
 
 2. We got "org.springframework.beans.factory.BeanCreationException" due to "Error creating bean with name 'dataSource' defined in class path resource"
 This means datasource bean is not created. In my case, it happened because we did not mention the sql driver dependency in gradle.
+So,when using spring data jpa, you must have the driver detail.
 
 3. In springboot project, we can simply use lombok dependency for logging with @Slf4j annotation. In spring boot project, we need to do a few things to get it working.
 First, we need to add lombok dependency. Second we need to exclude spring boot starter logging for all starter dependency as all starter project depend on starter
@@ -39,7 +40,7 @@ noargsconstructor
 204 when no content return which mean we worked on the request with no errror but there is no content to return. 
 
 9. For null checking string, the best way is third party apache StringUtils that check null and length both. However, for this we need to explicitly put apache common
-as dependency. Hence, I though why to put it just for one use case. Hence, I did two relevant methods. String.isEmpty (java 1.6) and String.isBlank(Java 1.11). 
+as dependency. Hence, I though why to put it just for one use case. Hence, I found two relevant methods. String.isEmpty (java 1.6) and String.isBlank(Java 1.11). 
 String.isEmpty only checks for length. String.isBlank check for lenth and whitespace both. Hence, i did two checks. One is for null and other for String.isBlank.
 
 10. While desinging urls, it is recommended to have hyphens over camcelCasing or underscore.
