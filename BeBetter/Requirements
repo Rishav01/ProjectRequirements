@@ -24,8 +24,8 @@ Task Feature Related:
 @@@ User must not be able to add task more than allowed in his plan
 
 User Feature Related: Diary Related
-@@@ In all the request, user should be able to authenticate calling user service and only then serve the request
-@@@ Diary Current status: Fetch all task of the day with points
+@@@ [Done] In all the request, user should be able to authenticate calling user service and only then serve the request
+@@@ [Done] Diary Current status: Fetch all task of the day with points for a user
 @@@ Current Day efficiency status: User should be able to calculate the total efficiency of the day
 @@@ Mornthly report: User should be able to add get the average efficiency of a month
 @@@ Yearly report: User should be able to get a yearly report
@@ -37,3 +37,9 @@ Phase 2:
 @@@Put logs wisely
 @@@SHould allow sub tasks
 @@@Should have a feature of dialy tasks
+
+
+
+Important Resources:
+Free mysql database: https://www.freesqldatabase.com/account/
+Php admin (Db client): https://phpmyadmin.co/sql.php?server=1&db=sql12600753&table=plan&pos=0
