@@ -64,3 +64,5 @@ String.isEmpty only checks for length. String.isBlank check for lenth and whites
 18. We need to check different ways in which we can calculate sum through a stream. Check the below stack overflow link
 @Query(value = "select * from task t where t.userEmailId = :userEmailId and t.forDate >= :fromDate " +
             "and t.forDate <= :toDate;", nativeQuery = true) 
+
+19.
