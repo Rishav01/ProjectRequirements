@@ -3,7 +3,7 @@ Below are some functional requirement BeBetter application:
 Phase 1:
 Core Requirement:
 User Feature Related:
-@@@ [Done] User should be able to Register himself
+@@@ [Done] User should be able to Register himself. When we register data should flow in USer, UserCredential and Plan table. 
 @@@ [Done] We can sign up user with some basic details.
   a. UI will call the login api of user service. If user logged in successfully then 200 with user object. If user login failed then 401. Message could be 
      "incorrect password" or "user with this user id does not exist"
