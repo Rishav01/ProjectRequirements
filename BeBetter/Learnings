@@ -65,4 +65,9 @@ String.isEmpty only checks for length. String.isBlank check for lenth and whites
 @Query(value = "select * from task t where t.userEmailId = :userEmailId and t.forDate >= :fromDate " +
             "and t.forDate <= :toDate;", nativeQuery = true) 
 
-19.
+19. Spring Boot use H2 database which has some reserved keyword. If those reserved words are used as table or column name then we get error JdbcSQLSyntaxErrorException.
+Hence, we should fix it by @Column("'OFFSET'") if OFFSET is the reserved word.
+
+20. For depecting list of object in json we use [].
+
+21. SaveAll() method is used to save list of objects in one go.
