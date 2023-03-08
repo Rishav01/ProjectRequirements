@@ -71,3 +71,5 @@ Hence, we should fix it by @Column("'OFFSET'") if OFFSET is the reserved word.
 20. For depecting list of object in json we use [].
 
 21. SaveAll() method is used to save list of objects in one go.
+
+22. Check how to write enums. Practice that once.
