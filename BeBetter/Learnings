@@ -73,3 +73,8 @@ Hence, we should fix it by @Column("'OFFSET'") if OFFSET is the reserved word.
 21. SaveAll() method is used to save list of objects in one go.
 
 22. Check how to write enums. Practice that once.
+
+23. The spring.datasource.url can be made configured by passing properties separated by semicolon. 
+
+24. H2 database has two modes. First is mem based and second is file based. Mem based is volatile thus the data does not last the app restart. Second is file based
+which is non volatile. We can use some properties like CLOSE_ON_EXIT=false.
