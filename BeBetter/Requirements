@@ -52,8 +52,12 @@ Task Service (Diary, Tasks and Efficiency)
   Request: DTO with emailID, ForDate and List of tasks
   Response: 400 if task more than the limit is tried creating. Will also add relevant messages with the max limit for user's understanding.
             201 with list of the task object that got created.
+  Validations on Request:
+    a.  
+   
   (For implementing 400, https://www.springboottutorial.com/spring-boot-exception-handling-for-rest-services)
   Need to handle exception handling if anything goes wrong then how to handle
+  Try ki ek exception handler mai multiple exception handle ho jate hai kya
   
   2. GetDiaryTasks: Able to get all the task for a user and for a specific date
   Request Type: GET
@@ -82,3 +86,9 @@ Technical Advancements:
 4. Open API for API Documentation
 5. Check Best practices for APIS in all domains
 6. Docker, Kubernetes, Deploying your application on Cloud (For free)
+7. We should know data validation techniques and everything related to it
+8. Testing mechanism ki complete knowledge. Junit and integration both
+9. Check tools for code intendation
+
+Individual Doubt:
+1. CrudRepository kha use karni hai aur JPARepository kaha
