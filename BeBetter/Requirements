@@ -82,6 +82,7 @@ Technical Advancements:
 1. Logging efficienct (Check levels properly. Info, Debug and other)
 2. Exception Handling
 (https://www.baeldung.com/rest-api-error-handling-best-practices)
+10. All the TODO
 3. Security (JWT)
 4. Open API for API Documentation
 5. Check Best practices for APIS in all domains
@@ -89,6 +90,7 @@ Technical Advancements:
 7. We should know data validation techniques and everything related to it
 8. Testing mechanism ki complete knowledge. Junit and integration both
 9. Check tools for code intendation
+
 
 Individual Doubt:
 1. CrudRepository kha use karni hai aur JPARepository kaha
