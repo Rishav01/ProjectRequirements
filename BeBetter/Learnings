@@ -81,4 +81,10 @@ which is non volatile. We can use some properties like CLOSE_ON_EXIT=false.
 
 25. For Stream API, for getting a single string value by concatening the list of string. We can use reduce method of stream with two arguments.
 
+26. To move your project from intellij local to github. Click VCS -> some first option and like that.
+
+27. Github has repositories where we can manage one application. Github project is an entity which hold different views which are like azure devops board for 
+managing stories and bugs. So, obviously these stories and bugs are for some application hence you can link repository to project. But you cannot to proper
+grouping like microservice arch. Github organization is also has free version under which i guess we can create repositoeis but not used so not sure. 
+
 
