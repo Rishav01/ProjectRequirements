@@ -46,26 +46,49 @@ Php admin (Db client): https://phpmyadmin.co/sql.php?server=1&db=sql12600753&tab
 --------------------------------------------------------------------------------------------------------------------------------------
 
 API Call Details:
-Task Service (Diary, Tasks and Efficiency)
-  1. SetDiaryTasks: Able to set multiple task for a user and for a specific date
+
+|||Task Service (Diary, Tasks and Efficiency)|||
+
+||API 1: Create Task(One or many)||
   Request Type: POST
-  Request: DTO with emailID, ForDate and List of tasks
+  Request: DTO with emailID and List of tasks (TaskName, assignedPoint, forDate) (TaskId (generated), EvalauedPoint(0), status(open), creationTimeStamp(now()))
   Response: 400 if task more than the limit is tried creating. Will also add relevant messages with the max limit for user's understanding.
             201 with list of the task object that got created.
-  Validations on Request:
-    a.  
-   
-  (For implementing 400, https://www.springboottutorial.com/spring-boot-exception-handling-for-rest-services)
-  Need to handle exception handling if anything goes wrong then how to handle
-  Try ki ek exception handler mai multiple exception handle ho jate hai kya
+  Validations on Request: **Check the dto constraints in DTO class
+  Business Scenarios it Covers: a. User creating one or more task in one create button hit  
+                                b. Multiple task can be created but only for a specific date
   
-  2. GetDiaryTasks: Able to get all the task for a user and for a specific date
+  
+  
+||API 2: Get Tasks (For a range of date)||
   Request Type: GET
-  RequestParam: UserEmailId and forDate
+  RequestParam: UserEmailId, fromDate, toDate and status (if status is null then is means to fetch all status) 
   Response: 200 with List of Task objects
             400 if there is not task for user for that day
+  Business Scenario: Where list of task need to be fetched
   
-  3. AddATask: Should be deprecated and Should only allow creating task with Diary
+||API 3: Update Open Task (One or many)||  
+  Request Type: PUT
+  RequestBody: All attribute related to the task
+  RequestBody: DTO with EmailId, TaskName, ForDate, AssignedPoint (update everything except emailId)
+  ResponseBody: Updated taskDTO with 200
+  Validations on Request: 1. TaskName cannot be Null, 2. ForDate cannot be same as of past, 3. Assigned points must be greater than 0 
+  4. Need to make sure the status is open, 5.  emailId is right format, 6. Not validating email id as expecting the user emailId coming must be after authentication
+  and hence change of invalid use is very rare. 
+  
+  
+ ||API 4: Update Task Status||
+ Request Type: PUT
+ Request Param: DTO with emailId, status, evaluatedpoint
+ Response Body: TaskId and updatedStatus. Lets decide
+ Validations on param: 1. Email Id format, 2. Status must be a valid set of status, 3. Evaluated point must be lesser or equal to assigned points.
+ business scenario: case 1: Cancelling Task then change status to cancelled, update the updateTimeStamp, 
+                    case 2: Completing the Task: then change status to completed, update the updateTimeStamp, update the evaluatedPoints
+                    case 3: reopened a Task: then change status to open, update the updateTimeStamp, make evaluated point to 0. Prerequisite is that it is either completed or closed. Change the status to reopened and update the evaluatedPoint to 0.
+                    case 4: change evaluated point: reopen the task and then complete the task by giving new evaluated point. Which mean calling this API two times.
+                    
+ 
+ Note: If we have to update a closed/completed task then we must need to open it first and then only we can edit it. Then, may be close or cancel it again.
   
   4. UpdateATask:
   
@@ -76,6 +99,14 @@ Task Service (Diary, Tasks and Efficiency)
   8. DoDiary: This is basically adding diary notes and completing the diary for that day
   
   10. GetEfficiencyForSpecificDuration: 
+  
+Important Points:
+  a. Whenever status is open, evaluated point must always be maintained 0. Hence, updating with open status not allowed
+  b. Whenever a task is cancelled, evaluated point must be kept 0. Hence, updating with cancelled status not allowed
+  c. Whenever a task is completed, evaluated point can be 0 or more but always be lesser or equal than assigned point.
+  d. Status can be open, cancelled, completed, reopened
+  e. You cannot update anything when task is cancelled
+  f. Task attribute: TaskId, TaskName, forDate, UserEmailId, assignedPoint, EvalauedPoint, status, creationTimeStamp, updateTimeStamp (can do a research when updateTimeStamp be needed?)
   
   
 Technical Advancements:
@@ -90,6 +121,7 @@ Technical Advancements:
 7. We should know data validation techniques and everything related to it
 8. Testing mechanism ki complete knowledge. Junit and integration both
 9. Check tools for code intendation
+10. Swagger, SwaggerHub
 
 
 Individual Doubt:
