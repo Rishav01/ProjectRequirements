@@ -87,4 +87,10 @@ which is non volatile. We can use some properties like CLOSE_ON_EXIT=false.
 managing stories and bugs. So, obviously these stories and bugs are for some application hence you can link repository to project. But you cannot to proper
 grouping like microservice arch. Github organization is also has free version under which i guess we can create repositoeis but not used so not sure. 
 
+28. Earlier i was using @ResponseStatus annotation with @ExceptionHandler returning ResponseEntity. Actually, It is allowed to be used but it does not give any additional feature with @ExceptionHandler when you are sending ResponseEntity. Because in responseEntity you have to pass the status code anyway. The right use of @ResponseEntity is actually with Custom exception class where its annotated on the class. It can also have attribute reason for passing the error message. One more catch here, if you are using @ResponseStatus(NOT_FOUND) on custom exception and you have exception handler for RuntimeException returning INTERNAL_SERVER_ERROR then ISR will be returned because custom exception with be thrown an since it is runtime exception so it get catched and handler status code gets precendence. 
+
+29. In intellij, enum name for a package is invalid. I can make enums.
+
+30. Do not repeat yourself even in DTO attribute name. For a class Task, should we keep the names like taskName, taskId, taskCreatedDate, taskUpdateDate?. Actually, we should keep names like id, name, createdDate, updateDate. If any other object are kept along side task in task class like user name or id. Then, say userId and userName. 
+
 
