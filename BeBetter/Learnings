@@ -93,4 +93,16 @@ grouping like microservice arch. Github organization is also has free version un
 
 30. Do not repeat yourself even in DTO attribute name. For a class Task, should we keep the names like taskName, taskId, taskCreatedDate, taskUpdateDate?. Actually, we should keep names like id, name, createdDate, updateDate. If any other object are kept along side task in task class like user name or id. Then, say userId and userName. 
 
+31. Liquiebase benefit? We get the history of the change along side important benefit to downgrade or upgrade to a version. Well, we can do similar with versioned
+sql files but I guess liquibase created a sortof framework or rules of how to do it so you do not have to think of this much simply follow it rules. Moreover, I have not used libquibase or versioned sql file hence cannot comment right now.
 
+32. gradle way of removing a transitive dependency
+dependencies{
+	implementation ('groupId:artificateId:version'){
+		exclude group: 'groundName', module: 'artifactId'
+	}
+}
+
+33. How to check which port is occupied by which processId? 'netstat -a -o -f'
+To check which process is running for a process id: tasklist /fi "pid eq 2640". It gives Image name as well which is nothing but process name. In spring app, it shows java.exe.
+To kill the task: taskkill /F /PID 2640 
