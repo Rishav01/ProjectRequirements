@@ -106,3 +106,18 @@ dependencies{
 33. How to check which port is occupied by which processId? 'netstat -a -o -f'
 To check which process is running for a process id: tasklist /fi "pid eq 2640". It gives Image name as well which is nothing but process name. In spring app, it shows java.exe.
 To kill the task: taskkill /F /PID 2640 
+
+34. Liquibase lock issue. The application lock is not release earlier and now app is down. We need to update that databaseChangeLoglock table for this. But since is down, hence how can we update the lock? Below is one solution:
+Step 1: go to location where data is present. In H2, its data folder.
+Step 2: run command "java -cp path/to/h2JarUsedInThatProject/h2-*.jar org.h2.tools.Shell -url jdbc:h2:file:/data/taskdb -user sa -password password"
+Example: java -cp C:\Users\rishav.mishra\.gradle\caches\modules-2\files-2.1\com.h2database\h2\2.1.214\d5c2005c9e3279201e12d4776c948578b16bf8b2\h2-2.1.214.jar org.h2.tools.Shell -url "jdbc:h2:file:/data/taskdb" -user sa -password password
+Step 3: sql terminal will get open. Run below three command/quries
+	select * from datbasechangeloglock
+	update DATABASECHANGELOGLOCK set locked = FALSE, LOCKGRANTED=null, LOCKEDBY=null;
+	exit
+Application should get up.
+
+35. Gradle stores dependencies inside user>gradle>cache>module-2.
+
+36. In JPA, when the table is formed first time by reading the Entity then auto increment is applied on the id column when are trying to auto generate it. But if tables are created by script then we need to make sure to put Auto_increment otherwise the Liquibase wont @GeneratedValue will not work
+
