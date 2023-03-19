@@ -51,12 +51,12 @@ API Call Details:
 
 ||API 1: Create Task(One or many)||
   Request Type: POST
-  Request: DTO with emailID and List of tasks (TaskName, assignedPoint, forDate) (TaskId (generated), EvalauedPoint(0), status(open), creationTimeStamp(now()))
+  Request: DTO having emailID, forDate and List of tasks (TaskName, assignedPoint, forDate) (TaskId (generated), EvalauedPoint(0), status(open), creationTimeStamp(now()))
   Response: 400 if task more than the limit is tried creating. Will also add relevant messages with the max limit for user's understanding.
             201 with list of the task object that got created.
   Validations on Request: **Check the dto constraints in DTO class
   Business Scenarios it Covers: a. User creating one or more task in one create button hit  
-                                b. Multiple task can be created but only for a specific date
+                                b. Multiple task can be created but only for a specific date. Not like one task for one date and other is for other date.
   
   
   
