@@ -51,8 +51,8 @@ API Call Details:
 
 ||API 1: Create Task(One or many)||
   Request Type: POST
-  Request: DTO having emailID, forDate and List of tasks (TaskName, assignedPoint, forDate) (TaskId (generated), EvalauedPoint(0), status(open), creationTimeStamp(now()))
-  Response: 400 if task more than the limit is tried creating. Will also add relevant messages with the max limit for user's understanding.
+  Request: DTO having emailID, forDate and List of tasks (TaskName, assignedPoint) (TaskId (generated), EvalauedPoint(0), status(open), creationTimeStamp(now()), creationTimeStamp(now())
+  Response: 400 if task more than the limit is tried creating. Will also add relevant messages with the max limit for user's understanding. Along with an errorcode and timestamp to indicate when thats happened.
             201 with list of the task object that got created.
   Validations on Request: **Check the dto constraints in DTO class
   Business Scenarios it Covers: a. User creating one or more task in one create button hit  
@@ -62,10 +62,10 @@ API Call Details:
   
 ||API 2: Get Tasks (For a range of date)||
   Request Type: GET
-  RequestParam: UserEmailId, fromDate, toDate and status (if status is null then is means to fetch all status) 
-  Response: 200 with List of Task objects
-            400 if there is not task for user for that day
-  Business Scenario: Where list of task need to be fetched
+  RequestParam: UserEmailId, fromDate, toDate and status optional (if status is null then is means to fetch all status) 
+  Response: 400 if there is not task for user for that day
+            200 with List of Task objects [taskList object]
+  Business Scenario: list of task need to be fetched for a specific range of dates
   
 ||API 3: Update Open Task (One or many)||  
   Request Type: PUT
