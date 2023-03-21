@@ -65,6 +65,7 @@ API Call Details:
   RequestParam: UserEmailId, fromDate, toDate and status optional (if status is null then is means to fetch all status) 
   Response: 400 if there is not task for user for that day
             200 with List of Task objects [taskList object]
+  Validation: [TODO]fromDate must be before tillDate, [TODO] Status must be a valid type
   Business Scenario: list of task need to be fetched for a specific range of dates
   
 ||API 3: Update Open Task (One or many)||  
