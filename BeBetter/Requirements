@@ -71,11 +71,12 @@ API Call Details:
 ||API 3: Update Open Task (One or many)||  
   Request Type: PUT
   RequestBody: All attribute related to the task
-  RequestBody: DTO with EmailId, TaskName, ForDate, AssignedPoint (update everything except emailId)
+  RequestBody: DTO with EmailId, ForDate, taskId, TaskName, AssignedPoint (update everything except emailId)
   ResponseBody: Updated taskDTO with 200
   Validations on Request: 1. TaskName cannot be Null, 2. ForDate cannot be same as of past, 3. Assigned points must be greater than 0 
   4. Need to make sure the status is open, 5.  emailId is right format, 6. Not validating email id as expecting the user emailId coming must be after authentication
   and hence change of invalid use is very rare. 
+  Note: One task update at a time. Because 1. if allowed multiple and one of them can fail then it can cause issue. Design wise, should we roll back the updated one's after one gets failed due to any reason 
   
   
  ||API 4: Update Task Status||
