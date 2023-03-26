@@ -71,12 +71,13 @@ API Call Details:
 ||API 3: Update Open Task (One or many)||  
   Request Type: PUT
   RequestBody: All attribute related to the task
-  RequestBody: DTO with EmailId, ForDate, taskId, TaskName, AssignedPoint (update everything except emailId)
+  RequestBody: DTO with EmailId, ForDate, taskId, TaskName, AssignedPoint (update everything except emailId and one task update in a call)
   ResponseBody: Updated taskDTO with 200
   Validations on Request: 1. TaskName cannot be Null, 2. ForDate cannot be same as of past, 3. Assigned points must be greater than 0 
   4. Need to make sure the status is open, 5.  emailId is right format, 6. Not validating email id as expecting the user emailId coming must be after authentication
   and hence change of invalid use is very rare. 
-  Note: One task update at a time. Because 1. if allowed multiple and one of them can fail then it can cause issue. Design wise, should we roll back the updated one's after one gets failed due to any reason 
+  Note: Is it alright to update multiple rows (entity) together in a single call? Actually, I guess if we are doing it then we need to take care of a few things.      Like, How are you doing it? what will be done if one of the row update fails? Should we then rollback all the updated or should we give partial response success. Also, will there be any issue on synchronization? So, we can do it but lets be careful. For now, we are going with updating one task at a time.
+  If at all we think, we must implement multiple update then we should validate the data very will so that chances of error gets shortened. Also, we must understand the mechanism of update so that we are sure that there is not inconsistency.
   
   
  ||API 4: Update Task Status||
