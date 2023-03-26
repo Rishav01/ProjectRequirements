@@ -135,3 +135,4 @@ Application should get up.
 
 43. When we have too many method parameter with quite alot of arguments then its better to shorted it. The ways we can do is by breaking one method into multiple in such a way that not all argument are needed in one. However, in some scenario, it does not get possible. Second, by create a dto class which is definitely possible in all cases. Lastly, for me, I would feel the urge when argument count goes beyond four in a method.
 
+44. Is it alright to update multiple rows (entity) together in a single call? Actually, I guess if we are doing it then we need to take care of a few things. Like, How are you doing it? what will be done if one of the row update fails? Should we then rollback all the updated or should we give partial response success. Also, will there be any issue on synchronization? So, we can do it but lets be careful. For now, we are going with updating one task at a time.
