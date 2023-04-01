@@ -92,10 +92,10 @@ API Call Details:
  
  Note: If we have to update a closed/completed task then we must need to open it first and then only we can edit it. Then, may be close or cancel it again.
   
-  open -> valid (cancelled, completed) and invalid (open, reopened)
-  cancelled -> valid (open) and invalid (cancelled, completed, reopened)
-  completed -> valid (reopen) and invalid (completed, cancelled, open)
-  reopen -> valid (cancelled, completed) and invalid (reopen, open)
+  open -> valid (cancelled, completed) and invalid (open, reopened) | updateTime, evaluatedPoints
+  cancelled -> valid (open) and invalid (cancelled, completed, reopened) | updateTime, 
+  completed -> valid (reopen) and invalid (completed, cancelled, open) | updateTime, Only for today, 
+  reopen -> valid (cancelled, completed) and invalid (reopen, open) | updateTime,  
   
   
   
