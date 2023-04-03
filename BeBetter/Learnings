@@ -138,3 +138,5 @@ Application should get up.
 44. Is it alright to update multiple rows (entity) together in a single call? Actually, I guess if we are doing it then we need to take care of a few things. Like, How are you doing it? what will be done if one of the row update fails? Should we then rollback all the updated or should we give partial response success. Also, will there be any issue on synchronization? So, we can do it but lets be careful. For now, we are going with updating one task at a time.
 
 45. We should use PUT while updating an existing resource while we should use POST for creating a resource. 
+
+46. @ConditionalOnProperty(name="application.properties.someproperty", havingValue="someValue"). If the condition satisfies then this service bean will will be created. This can be used to use either the mock or actual implementation of the interface.
