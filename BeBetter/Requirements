@@ -87,15 +87,13 @@ API Call Details:
  business scenario: case 1: Cancelling Task then change status to cancelled, update the updateTimeStamp, 
                     case 2: Completing the Task: then change status to completed, update the updateTimeStamp, update the evaluatedPoints
                     case 3: reopened a Task: then change status to open, update the updateTimeStamp, make evaluated point to 0. Prerequisite is that it is either completed or closed. Change the status to reopened and update the evaluatedPoint to 0.
-                    case 4: change evaluated point: reopen the task and then complete the task by giving new evaluated point. Which mean calling this API two times.
                     
  
  Note: If we have to update a closed/completed task then we must need to open it first and then only we can edit it. Then, may be close or cancel it again.
   
-  open -> valid (cancelled, completed) and invalid (open, reopened) | updateTime, evaluatedPoints
-  cancelled -> valid (open) and invalid (cancelled, completed, reopened) | updateTime, 
-  completed -> valid (reopen) and invalid (completed, cancelled, open) | updateTime, Only for today, 
-  reopen -> valid (cancelled, completed) and invalid (reopen, open) | updateTime,  
+  open -> valid (cancelled, completed) and invalid (open) | updateTime, evaluatedPoints
+  cancelled -> valid (open) and invalid (cancelled, completed) | updateTime, 
+  completed -> valid (open) and invalid (completed, cancelled) | updateTime, Only for today, 
   
   
   
